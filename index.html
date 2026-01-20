@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Từ vựng Topic: Travel- Lớp Anh thầy Kết</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #fff8f0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+ header {
+  background-color: #ffd6ba;
+  padding: 15px 20px;
+  font-weight: bold;
+  color: #7a4e3e;
+  display: flex;
+  flex-wrap: wrap;       
+  align-items: center;
+  justify-content: space-between;  /* Left luôn bên trái, center căn giữa */
+  gap: 15px;
+}
+
+/* Left: icon + home text */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;          /* không bị co lại */
+}
+
+.header-left a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  color: #7a4e3e;
+  text-decoration: none;
+}
+
+.header-left a i {
+  font-size: 28px;
+}
+
+/* Center title */
+header {
+  position: relative;
+}
+
+.header-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 32px;
+  margin: 0;
+  white-space: nowrap;
+}
+/* ===== TOP SELECT ===== */
+.top-select {
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px 40px;
+}
+
+select {
+  padding: 8px 14px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: 2px solid #a0e7e5;
+  background-color: #e3fdfd;
+}
+
+
+
+/* MEDIA QUERY cho điện thoại */
+@media (max-width: 480px) {
+
+    .header-center {
+    flex-basis: 100%;
+    order: 2;
+    text-align: center;
+    position: static;
+    transform: none;
+    margin-top: 8px;
+  }
+
+  .header-left {
+    order: 1;
+  }
+}
+
+  header {
+    padding: 10px 15px;
+  }
+  .header-left a {
+    font-size: 18px;
+  }
+  .header-left a i {
+    font-size: 20px;
+  }
+  .header-center {
+    font-size: 22px;
+  }
+}
+
+
+  .top-select {
+    display: flex;
+    justify-content: flex-start;
+    margin: 20px 40px;
+  }
+
+  select {
+    padding: 8px 14px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: 2px solid #a0e7e5;
+    background-color: #e3fdfd;
+  }
+
+  /* Word list */
+  .word-list {
+    width: 85%;
+    margin: 20px auto;
+    background-color: #E0FBE2;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: left;
+    font-size: 22px;
+  }
+
+.word-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 10px;
+  border-bottom: 1px dashed #ffb3ba;
+  transition: background-color .15s ease-in-out;
+}
+.word-row:last-child { border-bottom: none; }
+
+/* Hover đổi màu */
+.word-row:hover {
+  background-color: #fffacd; /* xanh nhạt dễ thấy */
+  cursor: pointer;
+}
+
+  /* Ôn tập */
+  .review-box {
+    margin: 40px auto;
+    width: 70%;
+    background-color: #ffe5ec;
+    padding: 25px;
+    font-weight: bold;
+    color: #607274;
+    font-size: 26px;
+    border-radius: 12px;
+  }
+  .review-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 15px;
+}
+.review-buttons button {
+  background-color: #a0e7e5;
+  border: none;
+  padding: 12px 20px;
+  font-size: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.review-buttons button:hover {
+  background-color: #ffb3ba;
+}
+
+
+  /* Bài tập */
+  .exercise {
+    width: 80%;
+    margin: 0 auto 30px auto;
+    font-size: 22px;
+    text-align: left;
+  }
+
+  .exercise input {
+    width: 220px;
+    font-size: 20px;
+    padding: 5px;
+    margin-left: 10px;
+    border-radius: 6px;
+  }
+
+  .exercise button {
+    margin-left: 10px;
+    padding: 6px 12px;
+    font-size: 18px;
+    background-color: #a0e7e5;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .exercise button:hover {
+    background-color: #ffb3ba;
+  }
+
+  .result {
+    font-weight: bold;
+    color: #C5705D;
+    font-size: 20px;
+    margin-left: 10px;
+  }
+
+  footer {
+    font-size: 22px;
+    margin-top: 40px;
+    padding: 20px;
+    color: #7a4e3e;
+    background-color: #fff0e1;
+  }
+
+  .confetti {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background: red;
+    opacity: .9;
+    animation: pop .9s ease-out forwards;
+  }
+  @keyframes pop {
+    0% { transform: translate(0,0) scale(1); opacity:1;}
+    50% {transform: translate(calc(var(--x)*.5),calc(var(--y)*.4)) scale(1.1);opacity:1;}
+    100% {transform: translate(var(--x),var(--y)) scale(.5);opacity:0;}
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-left">
+    <a href="https://ketng91.github.io/TuvungTHPTQ-homepage/">
+      <i class="fa-solid fa-house"></i> Lớp Anh thầy Kết
+    </a>
+  </div>
+  <div class="header-center">
+    Từ vựng Topic: Travel
+  </div>
+</header>
+
+<!-- Bộ chọn -->
+<div class="top-select">
+  <select id="wordList">
+    <option value="1">Từ vựng Topic: Travel</option>
+
+
+  </select>
+</div>
+
+
+
+<script>
+// Bắt sự kiện Enter cho tất cả các ô input trong bài tập
+document.addEventListener("DOMContentLoaded", function() {
+  const exerciseInputs = document.querySelectorAll(".exercise input");
+
+  exerciseInputs.forEach(input => {
+    input.addEventListener("keydown", function(e) {
+      if (e.key === "Enter") {      // Kiểm tra nếu nhấn Enter
+        e.preventDefault();          // Ngăn việc xuống dòng mặc định
+        const checkBtn = this.nextElementSibling; // giả định nút Check ngay sau input
+        if (checkBtn && checkBtn.tagName === "BUTTON") {
+          checkBtn.click();         // kích hoạt nút Check
+        }
+      }
+    });
+  });
+});
+</script>
+
+
+
+<!-- Danh sách từ vựng -->
+<div class="word-list" id="wordContainer"></div>
+
+<!-- Ôn tập -->
+<div class="review-box">
+  <div id="vietWord">Chọn Bộ từ vựng để bắt đầu</div>
+    
+  <!-- Hiển thị đáp án -->
+<div id="answer" style="font-size:22px;color:#7a4e3e; margin-top:15px; text-align:center; min-height:40px;"></div>
+   
+  <!-- Nút bấm -->
+  <div class="review-buttons" style="margin-top:20px;">
+    <button onclick="know()">Đã biết</button>
+    <button onclick="dontKnow()">Chưa biết</button>
+    <button onclick="nextWord()">Tiếp theo</button>
+  </div>
+
+</div>
+
+<!-- Bài tập -->
+<div class="exercise" id="exercise"></div>
+
+<footer>Chúc mừng bạn đã hoàn thành bài học!</footer>
+<script>
+const selectEl = document.getElementById("wordList");
+
+function sortOptionsByNumber() {
+  const opts = Array.from(selectEl.options);
+
+  opts.sort((a, b) => {
+    return Number(a.value) - Number(b.value);
+  });
+
+  selectEl.innerHTML = "";
+  opts.forEach(o => selectEl.appendChild(o));
+}
+
+// sort ngay khi load
+sortOptionsByNumber();
+
+// sort lại khi mở dropdown
+selectEl.addEventListener("mousedown", sortOptionsByNumber);
+selectEl.addEventListener("touchstart", sortOptionsByNumber);
+</script>
+
+<script>
+/********** DATA **********/
+const data = {
+  1: [
+  { en: "rom-com /ˌrɑːmˈkɑːm/", vn: "phim hài lãng mạn", tick: false },
+  { en: "sci-fi /ˈsaɪˌfaɪ/", vn: "phim khoa học viễn tưởng", tick: false },
+  { en: "horror flick /ˈhɔːrər flɪk/", vn: "phim kinh dị", tick: false },
+  { en: "documentary /ˌdɑːkjəˈmɛntəri/", vn: "phim tài liệu", tick: false },
+  { en: "animated film /ˈænəˌmeɪtəd fɪlm/", vn: "phim hoạt hình", tick: false },
+  { en: "sequel /ˈsikwəl/", vn: "phần tiếp theo", tick: false },
+  { en: "prequel /ˈprikwəl/", vn: "phần tiền truyện", tick: false },
+  { en: "box-office hit /ˈbɑːksˌɔːfɪs hɪt/", vn: "phim ăn khách / bom tấn doanh thu", tick: false },
+  { en: "flop /flɑːp/", vn: "phim thất bại về doanh thu", tick: false },
+  { en: "cult classic /kʌlt ˈklæsɪk/", vn: "phim kinh điển (có cộng đồng fan trung thành riêng)", tick: false },
+  { en: "binge-watch /bɪndʒ wɑːtʃ/", vn: "xem liên tục nhiều tập phim một lúc", tick: false },
+  { en: "season finale /ˈsizən fɪˈnæli/", vn: "tập cuối của một mùa phim", tick: false },
+  { en: "spin-off /ˈspɪnˌɔːf/", vn: "phim ngoại truyện (từ một phim gốc)", tick: false },
+  { en: "reality TV /riˈæləti ˌtiˈvi/", vn: "truyền hình thực tế", tick: false },
+  { en: "soap opera /soʊp ˈɑːprə/", vn: "phim truyền hình dài tập (kịch tính, tâm lý)", tick: false },
+  { en: "sitcom /ˈsɪtˌkɑːm/", vn: "phim hài tình huống", tick: false },
+  { en: "cliffhanger /ˈklɪfˌhæŋər/", vn: "kết thúc lửng lơ gây hồi hộp", tick: false },
+  { en: "binge-worthy /bɪndʒ ˈwɜːrði/", vn: "đáng để xem ngấu nghiến", tick: false },
+  { en: "chart-topper /tʃɑːrt ˈtɑːpər/", vn: "bài hát đứng đầu bảng xếp hạng", tick: false },
+  { en: "live album /laɪv ˈælbəm/", vn: "album thu âm trực tiếp từ buổi diễn", tick: false },
+  { en: "indie band /ˈɪndi bænd/", vn: "ban nhạc độc lập", tick: false },
+  { en: "catchy tune /ˈkætʃi tun/", vn: "giai điệu bắt tai / dễ nhớ", tick: false },
+  { en: "lyrics /ˈlɪrɪks/", vn: "lời bài hát", tick: false },
+  { en: "remix /ˌriˈmɪks/", vn: "bản phối lại", tick: false },
+  { en: "acoustic version /əˈkustɪk ˈvɜːrʒən/", vn: "phiên bản nhạc mộc (không điện tử)", tick: false },
+  { en: "sold-out gig /soʊld aʊt ɡɪɡ/", vn: "buổi biểu diễn cháy vé", tick: false },
+  { en: "Broadway musical /ˈbrɔːˌdweɪ ˈmjuzɪkəl/", vn: "nhạc kịch Broadway", tick: false },
+  { en: "one-man show /wʌn mæn ʃoʊ/", vn: "vở kịch một người diễn", tick: false },
+  { en: "improvisation /ˌɪmprəvəˈzeɪʃən/", vn: "sự ứng biến", tick: false },
+  { en: "ovation /oʊˈveɪʃən/", vn: "sự hoan nghênh / tràng pháo tay lớn", tick: false },
+  { en: "dress rehearsal /drɛs rɪˈhɜːrsəl/", vn: "buổi tổng duyệt (có trang phục, đạo cụ)", tick: false },
+  { en: "backstage /ˈbækˌsteɪdʒ/", vn: "hậu trường", tick: false },
+  { en: "blockbuster movie /ˈblɑːkbʌstər ˈmuvi/", vn: "phim bom tấn", tick: false },
+  { en: "live concert /laɪv ˈkɑːnsərt/", vn: "buổi hòa nhạc trực tiếp", tick: false },
+  { en: "engaging plot /ɪnˈɡeɪdʒɪŋ plɑːt/", vn: "cốt truyện hấp dẫn", tick: false },
+  { en: "character development /ˈkærɪktər dɪˈvɛləpmənt/", vn: "sự phát triển tâm lý nhân vật", tick: false },
+  { en: "visual effects /ˈvɪʒuəl ɪˈfɛkts/", vn: "kỹ xảo hình ảnh", tick: false },
+  { en: "critically acclaimed /ˈkrɪtɪkli əˈkleɪmd/", vn: "được giới phê bình khen ngợi", tick: false },
+  { en: "spectacular stage productions /spɛkˈtækjələr steɪdʒ prəˈdʌkʃənz/", vn: "các dàn dựng sân khấu hoành tráng", tick: false },
+  { en: "set designs /sɛt dɪˈzaɪnz/", vn: "thiết kế bối cảnh / sân khấu", tick: false },
+  { en: "captivating choreography /ˈkæptɪˌveɪtɪŋ ˌkɔːriˈɑːɡrəfi/", vn: "vũ đạo đầy mê hoặc", tick: false },
+  { en: "thrilling match /ˈθrɪlɪŋ mætʃ/", vn: "trận đấu kịch tính", tick: false },
+  { en: "interactive experiences /ˌɪntərˈæktɪv ɪkˈspɪriənsɪz/", vn: "trải nghiệm tương tác", tick: false },
+  { en: "immersive storytelling /ɪˈmɜːrsɪv ˈstɔːriˌtɛlɪŋ/", vn: "nghệ thuật kể chuyện nhập vai", tick: false },
+  { en: "stand-up comedy show /ˈstændʌp ˈkɑːməd i ʃoʊ/", vn: "show hài độc thoại", tick: false },
+  { en: "theatrical masterpiece /θiˈætrɪkəl ˈmæstərˌpis/", vn: "kiệt tác sân khấu", tick: false },
+  { en: "digital entertainment /ˈdɪdʒɪtəl ˌɛntərˈteɪnmənt/", vn: "giải trí kỹ thuật số", tick: false },
+  { en: "underdog /ˈʌndərˌdɔːɡ/", vn: "đội/người ở cửa dưới (được đánh giá thấp hơn)", tick: false },
+  { en: "nail-biter /ˈneɪlˌbaɪtər/", vn: "trận đấu hồi hộp đến nghẹt thở (cắn móng tay)", tick: false },
+  { en: "highlight reel /ˈhaɪˌlaɪt ril/", vn: "đoạn phim tổng hợp các cảnh nổi bật", tick: false },
+  { en: "play-by-play commentary /pleɪ baɪ pleɪ ˈkɑːmənˌtɛri/", vn: "bình luận chi tiết diễn biến trận đấu", tick: false },
+  { en: "crowd-pleaser /ˈkraʊdˌplizər/", vn: "người/thứ làm hài lòng đám đông", tick: false },
+  { en: "escapism /ɪˈskeɪpɪzəm/", vn: "khuynh hướng thoát ly thực tế (qua giải trí)", tick: false },
+  { en: "celebrity culture /səˈlɛbrəti ˈkʌltʃər/", vn: "văn hóa người nổi tiếng", tick: false },
+  { en: "paparazzi /ˌpɑːpəˈrɑːtsi/", vn: "thợ săn ảnh người nổi tiếng", tick: false },
+  { en: "fandom /ˈfændəm/", vn: "cộng đồng người hâm mộ", tick: false },
+  { en: "mainstream /ˈmeɪnˌstrim/", vn: "đại chúng / phổ thông", tick: false },
+  { en: "niche /nɪtʃ/", vn: "thị trường ngách / dành cho nhóm nhỏ", tick: false },
+  { en: "binge culture /bɪndʒ ˈkʌltʃər/", vn: "văn hóa tiêu thụ nội dung liên tục", tick: false },
+  { en: "steal the show /stil ðə ʃoʊ/", vn: "trở thành tâm điểm / chiếm spotlight", tick: false },
+  { en: "ham it up /hæm ɪt ʌp/", vn: "diễn xuất thái quá / lố", tick: false },
+  { en: "on the edge of my seat /ɑːn ðə ɛdʒ əv maɪ sit/", vn: "hồi hộp đứng ngồi không yên", tick: false },
+  { en: "a popcorn movie /ə ˈpɑːpkɔːrn ˈmuvi/", vn: "phim thuần giải trí (không cần suy nghĩ nhiều)", tick: false },
+  { en: "get hooked on /ɡɛt hʊkt ɑːn/", vn: "bị nghiện / bị cuốn hút vào cái gì", tick: false },
+  { en: "tune in /tun ɪn/", vn: "bật kênh / theo dõi chương trình", tick: false },
+  { en: "go viral /ɡoʊ ˈvaɪrəl/", vn: "lan truyền chóng mặt", tick: false },
+  { en: "have a blast /hæv ə blæst/", vn: "có một khoảng thời gian cực kỳ vui vẻ", tick: false },
+  { en: "kill time /kɪl taɪm/", vn: "giết thời gian", tick: false },
+  { en: "light-hearted /ˌlaɪtˈhɑːrtəd/", vn: "vui vẻ / nhẹ nhàng / không nghiêm trọng", tick: false }
+  ],
+
+};
+
+const exercises = {
+  1: [
+    {q:"The company launched a massive ________ to promote its new phone.", a:"advertising campaign"},
+    {q:"Most social media platforms rely heavily on ________ to operate.", a:"advertising revenue"},
+    {q:"Modern societies are often driven by a culture of ________.", a:"consumerism"},
+    {q:"Many online shoppers fall into the trap of ________ during big sales.", a:"impulse buying"},
+    {q:"Brands use ________ to create trust.", a:"celebrity endorsement"},
+    {q:"Athletes are paid large sums to ________ a product.", a:"endorse"}
+  ],
+  2: [
+    {q:"Famous athletes can boost sales through product ________.", a:"endorsement"},
+{q:"Companies must protect their ________ by maintaining consistent quality.", a:"brand equity"},
+{q:"A singer with strong ________ can attract millions of new customers.", a:"celebrity appeal"},
+{q:"Brands aim to build long-term ________ among returning customers.", a:"brand loyalty"},
+{q:"A poorly handled ________ may damage both the celebrity and the brand.", a:"celebrity scandal"},
+  ],
+
+
+
+
+
+};
+
+let currList = 1, listCopy=[], index=0;
+
+/********** LOAD LIST **********/
+function loadList(){
+  currList = document.getElementById("wordList").value;
+  listCopy = [...data[currList]];
+  renderWords();
+  index=-1;
+  nextWord();
+  loadExercises();
+}
+
+document.getElementById("wordList").onchange = loadList;
+loadList();
+
+/********** RENDER & SORT **********/
+function renderWords(){
+  const box=document.getElementById("wordContainer");
+  box.innerHTML="";
+
+  let sorted=[...data[currList]].sort((a,b)=>b.tick - a.tick);
+
+  sorted.forEach(item=>{
+    let realIndex = data[currList].indexOf(item);
+    box.innerHTML+=`
+      <div class="word-row">
+        <span>${item.en}: ${item.vn}</span>
+        <input type="checkbox" ${item.tick?"checked":""} onclick="toggleTick(${realIndex})">
+      </div>`;
+  });
+}
+
+/********** TICK UPDATE **********/
+function toggleTick(realIndex){
+  data[currList][realIndex].tick = !data[currList][realIndex].tick;
+  renderWords();
+}
+
+/********** REVIEW **********/
+function nextWord(){
+  document.getElementById("answer").innerHTML="";
+  if(listCopy.length===0){
+    document.getElementById("vietWord").innerHTML="🎉 Bạn đã học xong hết!";
+    return;
+  }
+  index=Math.floor(Math.random()*listCopy.length);
+  document.getElementById("vietWord").innerHTML=listCopy[index].vn;
+}
+
+function know(){
+  firework();
+  listCopy.splice(index,1);
+  nextWord();
+}
+
+function dontKnow(){
+  document.getElementById("answer").innerHTML=listCopy[index].en;
+}
+
+/********** EXERCISES **********/
+function loadExercises(){
+  const box=document.getElementById("exercise");
+  box.innerHTML="";
+  exercises[currList].forEach((item,i)=>{
+    box.innerHTML+=`
+    <div style="margin:10px 0;">
+      ${i+1}. ${item.q}
+      <input id="ex${i}">
+      <button onclick="checkEx(${i})">Check</button>
+      <span id="res${i}" class="result"></span>
+    </div>`;
+  });
+}
+
+function checkEx(i){
+  const user = document.getElementById("ex"+i).value.trim().toLowerCase();
+  const ans = exercises[currList][i].a.toLowerCase();
+  const box = document.getElementById("res"+i);
+
+  if(user === ans) {
+    box.innerHTML = "✔ Correct";
+    box.style.color = "#28a745"; // chữ Correct màu xanh lá
+    firework(); // gọi pháo hoa
+  } else {
+    box.innerHTML = "✘ " + exercises[currList][i].a;
+    box.style.color = "#C5705D"; // chữ sai màu đỏ
+  }
+}
+
+/********** FIREWORK **********/
+function firework(){
+  for(let i=0;i<25;i++){
+    const c=document.createElement("div");
+    c.className="confetti";
+    c.style.setProperty("--x",(Math.random()-.5)*600+"px");
+    c.style.setProperty("--y",(Math.random()-.5)*600+"px");
+    c.style.backgroundColor=`hsl(${Math.random()*360},90%,60%)`;
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),900);
+  }
+}
+</script>
+
+</body>
+</html>
